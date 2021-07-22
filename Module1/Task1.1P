@@ -24,12 +24,15 @@ void loop()
   bool on=digitalRead(motion_sensor);
   if(on==true){
   	digitalWrite(led,HIGH);
-    Serial.print("Motion Detected!!");
+    Serial.println("Motion Detected!!");
   
   }
-  else{
+  else
+  {
+  
+  	
   	digitalWrite(led,LOW);
-    Serial.print("Motion Not Detected!!");
+    Serial.println("Motion Not Detected!!");
   }
   
 }
