@@ -5,7 +5,7 @@ int led = 13;
 int motion_sensor=11;
 void setup()
 {
-  
+  Serial.begin(9600);
   pinMode(motion_sensor,INPUT);
   pinMode(led, OUTPUT);
 }
