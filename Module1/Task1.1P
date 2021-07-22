@@ -1,0 +1,35 @@
+// C++ code
+//
+
+int led = 13;
+int motion_sensor=11;
+void setup()
+{
+  
+  pinMode(motion_sensor,INPUT);
+  pinMode(led, OUTPUT);
+}
+void blink(int time,int led)
+{
+	
+	digitalWrite(led, HIGH);
+  	delay(time); // Wait for 1000 millisecond(s)
+  	digitalWrite(led, LOW);
+  	delay(time); // Wait for 1000 millisecond(s)
+
+}
+void loop()
+{
+ 
+  bool on=digitalRead(motion_sensor);
+  if(on==true){
+  	digitalWrite(led,HIGH);
+    Serial.print("Motion Detected!!");
+  
+  }
+  else{
+  	digitalWrite(led,LOW);
+    Serial.print("Motion Not Detected!!");
+  }
+  
+}
