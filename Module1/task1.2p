@@ -1,0 +1,39 @@
+//pins
+const int button_pin=2;
+const int led_pin=5;
+
+//
+uint8_t led_state=LOW;
+
+//setting pins as input and output 
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(button_pin, INPUT);
+  pinMode(led_pin, OUTPUT);
+  attachInterrupt(digitalPinToInterrupt(button_pin),toggle,FALLING);
+}
+void loop()
+{
+  if (led_state != HIGH){
+    
+    Serial.print("LED ON, BUTTON USED!!");
+    Serial.print("\n");
+  
+  
+  }else{
+    Serial.print("LED OFF , Button USED!!");
+    Serial.print("\n");
+   }
+  delay(1000); 
+}
+// interupt function 
+void toggle()
+{
+  led_state=!led_state;
+  
+  Serial.print(led_state);
+  Serial.print("\n");
+  digitalWrite(led_pin,led_state);
+
+}
